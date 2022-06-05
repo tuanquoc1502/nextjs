@@ -1,10 +1,18 @@
 import React from "react";
+import Link from "next/link";
 
 const NavbarMenu = () => {
   return (
     <div className="menus">
-      <div className="item">Post</div>
-      <div className="item">About</div>
+      <Link href="/">
+        <div className="item">Home</div>
+      </Link>
+      <Link href="/post">
+        <div className="item">Post</div>
+      </Link>
+      <Link href="/about">
+        <div className="item">About</div>
+      </Link>
     </div>
   );
 };
