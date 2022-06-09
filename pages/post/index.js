@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Layout from "../../components/Layout";
 import { getPosts } from "../../lib/post";
@@ -8,7 +9,9 @@ const Post = ({ posts }) => {
       {posts.map((post) => (
         <div key={post.id} className="post">
           {post.title}
-          <div className="seeMore">See more</div>
+          <Link href={`/post/${post.id}`}>
+            <div className="seeMore">See more</div>
+          </Link>
         </div>
       ))}
     </Layout>
