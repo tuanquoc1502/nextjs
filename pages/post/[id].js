@@ -1,14 +1,26 @@
 import React from "react";
 import Layout from "../../components/Layout";
+import { getPostbyId, getPostIds } from "../../lib/post";
 
-const Ids = () => {
-  return <Layout>Ids</Layout>;
+const Ids = ({ post }) => {
+  return <Layout>{post.title}</Layout>;
 };
 
 export const getStaticPaths = async () => {
+  const paths = await getPostIds();
+
   return {
-    paths: {},
+    paths,
     fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const post = await getPostbyId(params.id);
+  return {
+    props: {
+      post,
+    },
   };
 };
 
