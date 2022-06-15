@@ -8,7 +8,7 @@ const Post = ({ posts }) => {
     <Layout>
       {posts.map((post) => (
         <div key={post.id} className="post">
-          {post.title}
+          {post.id}--- {post.title}
           <Link href={`/post/${post.id}`}>
             <div className="seeMore">See more</div>
           </Link>
@@ -19,7 +19,14 @@ const Post = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = await getPosts();
+  let posts = await getPosts(10);
+
+  // error api
+  if (!posts)
+    return {
+      notFound: true,
+    };
+
   return {
     props: {
       posts,

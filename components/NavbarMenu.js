@@ -13,6 +13,9 @@ const NavbarMenu = () => {
       <Link href="/about">
         <div className="item">About</div>
       </Link>
+      <Link href="/books">
+        <div className="item">Books</div>
+      </Link>
     </div>
   );
 };
